@@ -3,6 +3,8 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt({
   rules: {
-    '@stylistic/operator-linebreak': 'off'
+    '@stylistic/operator-linebreak': 'off',
+    'vue/max-attributes-per-line': 'off',
+    'vue/singleline-html-element-content-newline': 'off'
   }
 })
