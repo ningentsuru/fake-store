@@ -63,7 +63,6 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
 
-
 ## Database Structure
 
-server\database\migrations\001_users.sql
+server\database\migrate.ts
