@@ -2,6 +2,6 @@
 
 <template>
   <UPage>
-    <UPageSection> Home Page! </UPageSection>
+    <UPageSection> Seller! </UPageSection>
   </UPage>
 </template>

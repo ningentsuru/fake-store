@@ -6,5 +6,6 @@ export default withNuxt({
     '@stylistic/operator-linebreak': 'off',
     'vue/max-attributes-per-line': 'off',
     'vue/singleline-html-element-content-newline': 'off'
-  }
+  },
+  extend: ['prettier']
 })

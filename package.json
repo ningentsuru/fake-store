@@ -15,7 +15,9 @@
     "@iconify-json/simple-icons": "^1.2.86",
     "@nuxt/ui": "^4.8.2",
     "nuxt": "^4.4.8",
-    "tailwindcss": "^4.3.0"
+    "nuxt-auth-utils": "0.5.29",
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.16.0",
@@ -23,7 +25,7 @@
     "typescript": "^6.0.3",
     "vue-tsc": "^3.3.4"
   },
-  "packageManager": "pnpm@11.5.2",
+  "packageManager": "pnpm@11.6.0",
   "overrides": {
     "shell-quote": "^1.8.4"
   }

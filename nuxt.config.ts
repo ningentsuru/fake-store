@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/ui'],
+  modules: ['@nuxt/eslint', '@nuxt/ui', 'nuxt-auth-utils'],
 
   devtools: {
     enabled: true
@@ -19,9 +19,9 @@ export default defineNuxtConfig({
       database: true
     },
     database: {
-      myDB: {
+      fakeStore: {
         connector: 'sqlite',
-        options: { name: 'mydbfile' }
+        options: { name: 'fake-store' }
       }
     }
   },
