@@ -14,18 +14,6 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
-  nitro: {
-    experimental: {
-      database: true
-    },
-    database: {
-      fakeStore: {
-        connector: 'sqlite',
-        options: { name: 'fake-store' }
-      }
-    }
-  },
-
   eslint: {
     config: {
       stylistic: {

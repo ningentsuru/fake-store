@@ -20,8 +20,6 @@ const onSubmit = async () => {
     display_name: state.display_name
   })
 
-  console.log('aaa', data)
-
   if (data.success) {
     await refreshSession()
     await navigateTo('/')

@@ -1,6 +1,6 @@
-export default defineEventHandler(async (event) => {
-  const db = useDatabase('fakeStore')
+import { db } from '@/../server/utils/db'
 
+export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
   const email = body.email?.trim().toLowerCase()
@@ -14,13 +14,11 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const existing = await db.sql`
-    SELECT id
-    FROM users
-    WHERE email = ${email}
-  `
+  const existing = await db.exists('SELECT id FROM users WHERE email = ?', [
+    email
+  ])
 
-  if (existing.rows.length) {
+  if (existing) {
     throw createError({
       statusCode: 409,
       statusMessage: 'Email already exists'
@@ -29,29 +27,17 @@ export default defineEventHandler(async (event) => {
 
   const passwordHash = await hashPassword(password)
 
-  const result = await db.sql`
-    INSERT INTO users (
-      email,
-      password_hash,
-      display_name
-    )
-    VALUES (
-      ${email},
-      ${passwordHash},
-      ${displayName}
-    )
-    RETURNING id
-  `
-
-  const userId = result.rows[0].id
-
-  await setUserSession(event, {
-    user: {
-      id: userId,
-      email,
-      displayName
-    }
-  })
+  await db.execute(
+    `
+  INSERT INTO users (
+    email,
+    password_hash,
+    display_name
+  )
+  VALUES (?, ?, ?)
+  `,
+    [email, passwordHash, displayName]
+  )
 
   return {
     success: true

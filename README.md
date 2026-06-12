@@ -66,12 +66,4 @@ Install [Renovate GitHub app](https://github.com/apps/renovate/installations/sel
 
 ## Database Structure
 
-```
-CREATE TABLE users (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  email TEXT NOT NULL UNIQUE,
-  password_hash TEXT NOT NULL,
-  display_name TEXT,
-  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
-);
-```
+server\database\migrations\001_users.sql
