@@ -4,7 +4,7 @@ import type { UserResponse } from '@/types'
 export default defineEventHandler(async (event) => {
   const { email, password } = await readBody(event)
 
-  const user = await db.one<UserResponse['user']>(
+  const user = await db.one<UserResponse>(
     'SELECT * FROM users WHERE email = ?',
     [email]
   )
@@ -30,5 +30,7 @@ export default defineEventHandler(async (event) => {
     }
   })
 
-  return { success: true }
+  return {
+    success: true
+  }
 })

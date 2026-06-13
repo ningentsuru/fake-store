@@ -26,7 +26,7 @@ useSeoMeta({
     <UMain>
       <NuxtPage />
     </UMain>
-
+    <USeparator icon="i-simple-icons-nuxtdotjs" />
     <LayoutsFooter />
   </UPage>
 </template>

@@ -14,6 +14,16 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
+  nitro: {
+    storage: {
+      files: {
+        driver: 'vercel-blob',
+        access: 'private',
+        token: process.env.BLOB_READ_WRITE_TOKEN
+      }
+    }
+  },
+
   eslint: {
     config: {
       stylistic: {

@@ -10,4 +10,13 @@ export async function runMigrations() {
       created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )
   `)
+
+  await client.execute(`
+    CREATE TABLE IF NOT EXISTS storage (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      etag TEXT NOT NULL UNIQUE,
+      url TEXT NOT NULL UNIQUE,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `)
 }

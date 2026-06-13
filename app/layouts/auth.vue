@@ -1,9 +1,7 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <UMain>
+  <UMain class="min-h-screen! flex justify-center items-center">
     <NuxtPage />
   </UMain>
 </template>

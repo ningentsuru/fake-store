@@ -25,7 +25,12 @@ const logout = async () => {
     </template>
 
     <template #right>
-      <UNavigationMenu class="hidden md:block" :items="NAVIGATIONS" />
+      <UNavigationMenu
+        class="hidden md:block"
+        :items="NAVIGATIONS"
+        :animated="true"
+        content-orientation="vertical"
+      />
       <UButton
         v-if="loggedIn"
         class="cursor-pointer"

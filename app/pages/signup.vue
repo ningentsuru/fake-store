@@ -28,23 +28,26 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <UPage class="flex justify-center">
-    <UPageSection>
-      <UForm class="space-y-4 mx-auto" @submit.prevent="onSubmit">
-        <UFormField label="Display Name">
-          <UInput v-model="state.display_name" />
-        </UFormField>
-        <UFormField label="Email">
-          <UInput v-model="state.email" />
-        </UFormField>
-        <UFormField label="Password">
-          <UInput type="password" v-model="state.password" />
-        </UFormField>
-        <UFieldGroup size="lg" orientation="vertical" class="gap-4">
-          <UButton type="submit"> Signup! </UButton>
-          <UButton to="/login"> Login Here! </UButton>
-        </UFieldGroup>
-      </UForm>
-    </UPageSection>
-  </UPage>
+  <UPageHero
+    class="flex justify-center"
+    headline="Signup Page"
+    title="Fake Store"
+    description="Create any format of your desired email address this will not requesting a valid email address later"
+  >
+    <UForm class="space-y-4 mx-auto" @submit.prevent="onSubmit">
+      <UFormField label="Display Name">
+        <UInput v-model="state.display_name" />
+      </UFormField>
+      <UFormField label="Email">
+        <UInput type="email" v-model="state.email" />
+      </UFormField>
+      <UFormField label="Password">
+        <UInput type="password" v-model="state.password" />
+      </UFormField>
+      <UFieldGroup size="lg" orientation="vertical" class="gap-4">
+        <UButton type="submit"> Signup! </UButton>
+        <UButton to="/login"> Login Here! </UButton>
+      </UFieldGroup>
+    </UForm>
+  </UPageHero>
 </template>

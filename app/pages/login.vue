@@ -26,20 +26,23 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <UPage class="flex justify-center">
-    <UPageSection>
-      <UForm class="space-y-4 mx-auto" @submit.prevent="onSubmit">
-        <UFormField label="Email">
-          <UInput v-model="state.email" />
-        </UFormField>
-        <UFormField label="Password">
-          <UInput type="password" v-model="state.password" />
-        </UFormField>
-        <UFieldGroup size="lg" orientation="vertical" class="gap-4">
-          <UButton type="submit"> Login! </UButton>
-          <UButton to="/signup"> Signup Here! </UButton>
-        </UFieldGroup>
-      </UForm>
-    </UPageSection>
-  </UPage>
+  <UPageHero
+    class="flex justify-center"
+    headline="Login Page"
+    title="Fake Store"
+    description="Login your account"
+  >
+    <UForm class="space-y-4 mx-auto" @submit.prevent="onSubmit">
+      <UFormField label="Email">
+        <UInput v-model="state.email" />
+      </UFormField>
+      <UFormField label="Password">
+        <UInput type="password" v-model="state.password" />
+      </UFormField>
+      <UFieldGroup size="lg" orientation="vertical" class="gap-4">
+        <UButton type="submit"> Login! </UButton>
+        <UButton to="/signup"> Signup Here! </UButton>
+      </UFieldGroup>
+    </UForm>
+  </UPageHero>
 </template>
