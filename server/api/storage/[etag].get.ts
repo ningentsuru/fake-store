@@ -2,8 +2,6 @@ import { get } from '@vercel/blob'
 import { db } from '@/../server/utils/db'
 
 export default defineEventHandler(async (event) => {
-  await requireUserSession(event)
-
   const etag = getRouterParam(event, 'etag')
 
   if (!etag) {

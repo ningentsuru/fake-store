@@ -49,5 +49,39 @@ export function useApi() {
     }
   }
 
-  return { authLogin, authSignup, authMe, authLogout }
+  const itemAdd = async (body: any) => {
+    try {
+      const formData = new FormData()
+      formData.append('file', body.file)
+      formData.append('name', body.name)
+      formData.append('price', body.price)
+      formData.append('description', body.description)
+
+      return await apiFetch('/api/item/add', {
+        method: 'post',
+        body: formData
+      })
+    } catch (error) {
+      return error?.response?.statusText ?? 'An unknown error occurred.'
+    }
+  }
+
+  const itemLists = async () => {
+    try {
+      return await apiFetch('/api/item/lists', {
+        method: 'get'
+      })
+    } catch (error) {
+      return error?.response?.statusText ?? 'An unknown error occurred.'
+    }
+  }
+
+  return {
+    authLogin,
+    authSignup,
+    authMe,
+    authLogout,
+    itemAdd,
+    itemLists
+  }
 }

@@ -2,9 +2,13 @@ allowBuilds:
   '@parcel/watcher': false
   '@tailwindcss/oxide': false
   esbuild: false
+  sharp: true
   unrs-resolver: false
   vue-demi: false
 minimumReleaseAgeExclude:
   - '@nuxt/eslint-config@1.16.0'
   - '@nuxt/eslint-plugin@1.16.0'
   - '@nuxt/eslint@1.16.0'
+  - '@iconify-json/lucide@1.2.113'
+  - '@libsql/client@0.17.4'
+  - '@libsql/core@0.17.4'

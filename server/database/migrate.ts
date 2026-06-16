@@ -19,4 +19,16 @@ export async function runMigrations() {
       created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )
   `)
+
+  await client.execute(`
+    CREATE TABLE IF NOT EXISTS items (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id NUMBER,
+      storage_id NUMBER,
+      name TEXT,
+      price NUMBER,
+      description TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `)
 }

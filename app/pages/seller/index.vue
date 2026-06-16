@@ -1,11 +1,15 @@
 <script setup lang="ts">
+const { itemAdd } = useApi()
 const form = reactive({
-  image: null,
+  file: null as File | null,
   name: '',
   price: '',
   description: ''
 })
-const onSubmit = () => {}
+
+const onSubmit = async () => {
+  await itemAdd(form)
+}
 </script>
 
 <template>
@@ -17,33 +21,47 @@ const onSubmit = () => {}
       description="Place your random item here."
     />
     <UPageSection>
-      <UForm @submit.prevent="onSubmit">
-        <UFileUpload v-model="form.image" class="w-96 min-h-48" />
-        <UFormField label="Item Name">
-          <UInput
-            type="text"
-            label="Item Name"
-            v-model="form.name"
-            placeholder="Item Name"
+      <UCard class="flex justify-center-safe">
+        <UForm class="w-fit" @submit.prevent="onSubmit">
+          <UFileUpload
+            required
+            v-model="form.file"
+            class="w-96 min-h-48 cursor-pointer"
+            accept="image/*"
           />
-        </UFormField>
-        <UFormField label="Item Price">
-          <UInput
-            type="text"
-            label="Item Price"
-            v-model="form.price"
-            placeholder="Item Price"
-          />
-        </UFormField>
-        <UFormField label="Item Description">
-          <UTextarea
-            type="text"
-            label="Item Description"
-            v-model="form.description"
-            placeholder="Item Description"
-          />
-        </UFormField>
-      </UForm>
+          <UFormField label="Item Name">
+            <UInput
+              class="w-full"
+              type="text"
+              label="Item Name"
+              required
+              v-model="form.name"
+              placeholder="Item Name"
+            />
+          </UFormField>
+          <UFormField label="Item Price">
+            <UInput
+              class="w-full"
+              type="number"
+              label="Item Price"
+              required
+              v-model="form.price"
+              placeholder="Item Price"
+            />
+          </UFormField>
+          <UFormField label="Item Description">
+            <UTextarea
+              class="w-full"
+              type="text"
+              label="Item Description"
+              required
+              v-model="form.description"
+              placeholder="Item Description"
+            />
+          </UFormField>
+          <UButton class="mt-4 w-full" type="submit" label="Submit" />
+        </UForm>
+      </UCard>
     </UPageSection>
   </UPage>
 </template>
